@@ -1,8 +1,11 @@
 const userModel = require("../models/userModel");
+const { createUser } = require("../services/userServices");
+const { validationResult } = require("express-validator");
 
 const register = async (req, res) => {
-  const { fullname, email, password } = req.body;
-  res.json({ fullname, email, password });
+  const error = validationResult(req);
+  console.log(error)
+  res.send(error);
 };
 
 module.exports = { register };
