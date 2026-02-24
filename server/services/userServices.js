@@ -1,6 +1,10 @@
 const userModel = require("../models/userModel");
 
-const createUser = async ({ firstname, lastname, email, password }) => {
+const createUser = async ({
+  fullname: { firstname, lastname },
+  email,
+  password,
+}) => {
   if (!firstname || !email || !password) {
     throw new Error("All fields are required");
   }
